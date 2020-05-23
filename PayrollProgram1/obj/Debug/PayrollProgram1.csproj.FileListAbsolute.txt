@@ -7,3 +7,4 @@ C:\Users\gamef\source\repos\PayrollProgram1\PayrollProgram1\obj\Debug\PayrollPro
 C:\Users\gamef\source\repos\PayrollProgram1\PayrollProgram1\obj\Debug\PayrollProgram1.csproj.CoreCompileInputs.cache
 C:\Users\gamef\source\repos\PayrollProgram1\PayrollProgram1\obj\Debug\PayrollProgram1.exe
 C:\Users\gamef\source\repos\PayrollProgram1\PayrollProgram1\obj\Debug\PayrollProgram1.pdb
+C:\Users\gamef\source\repos\PayrollProgram1\PayrollProgram1\obj\Debug\PayrollProgram1.csprojAssemblyReference.cache
