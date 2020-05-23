@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;S
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,41 +18,55 @@ namespace PayrollProgram1
             InitializeComponent();
         }
 
+        Employee employee;
 
-        private void checkData()
+        private void Form1_Load(object sender, EventArgs e)
         {
-            if (tb_1.Text == "" || tb_1.Text == null || tb_2.Text == "" || tb_2.Text == null || tb_3.Text == "" || tb_3.Text == null
-                || tb_4.Text == "" || tb_4.Text == null || tb_5.Text == "")
-            {
-                MessageBox.Show("Please make sure all fields all filled out.");
-            }
-
-            else
-            {
-                // write to file
-            }
+            cBoxJob.Items.Add("Software Engineer");
+            cBoxJob.Items.Add("Senior Software Engineer");
+            cBoxJob.Items.Add("Software Manager");
+            cBoxJob.Items.Add("QA Manager");
+            cBoxJob.Items.Add("QA Tester");
+            cBoxJob.Items.Add("Senior QA Tester");
+            cBoxJob.Items.Add("Producer");
+            cBoxJob.Items.Add("Designer");
+            cBoxJob.Items.Add("Senior Designer");
         }
         
         private void btn_create_Click(object sender, EventArgs e)
         {
-            checkData();
-            //writeText();
+            // 1. 
+            checkDataFields();
+
+            // 2.
+            employee = createEmployee();
+
+            // 3.
         }
 
-        //private void writeText()
-        //{
-        //    textBoxSide.Visible = true;
-        //    firstName = tb_1.Text;
-        //    textBoxSide.Text += firstName;
+        private Employee createEmployee()
+        {
+            Employee employee = new Employee(tb_1.Text, tb_2.Text, cBoxJob.Text, tb_4.Text, tb_5.Text, tb_6.Text);
+            return employee;
+        }
 
-        //    lastName = tb_2.Text;
-        //    textBoxSide.Text += lastName + Environment.NewLine;
+        private void checkDataFields()
+        {
+            if (tb_1.Text == "" || tb_1.Text == null || tb_2.Text == "" || tb_2.Text == null
+                || tb_4.Text == "" || tb_4.Text == null || tb_5.Text == "")
+            {
+                MessageBox.Show("Please make sure all fields all filled out.");
+            }
+        }
 
-        //    jobTitle = tb_3.Text;
-        //    textBoxSide.Text += jobTitle;
+        private void displayData()
+        {
+            textBoxSide.Visible = true;
+        }
 
-        //    firstName = tb_1.Text;
-        //    textBoxSide.Text = firstName;
-        //}
+        private void writeData(Employee emp)
+        {
+            textBoxSide.Visible = true;
+        }
     }
 }
