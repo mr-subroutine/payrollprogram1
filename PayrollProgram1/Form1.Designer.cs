@@ -97,7 +97,7 @@
             this.tb_5.MaxLength = 6;
             this.tb_5.Name = "tb_5";
             this.tb_5.Size = new System.Drawing.Size(54, 20);
-            this.tb_5.TabIndex = 6;
+            this.tb_5.TabIndex = 5;
             // 
             // btn_create
             // 
@@ -143,7 +143,7 @@
             this.tb_6.Multiline = true;
             this.tb_6.Name = "tb_6";
             this.tb_6.Size = new System.Drawing.Size(293, 141);
-            this.tb_6.TabIndex = 14;
+            this.tb_6.TabIndex = 6;
             // 
             // label5
             // 
@@ -169,7 +169,7 @@
             this.tb_4.MaxLength = 10;
             this.tb_4.Name = "tb_4";
             this.tb_4.Size = new System.Drawing.Size(100, 20);
-            this.tb_4.TabIndex = 17;
+            this.tb_4.TabIndex = 4;
             // 
             // label7
             // 
@@ -186,22 +186,42 @@
             this.textBoxSide.Location = new System.Drawing.Point(345, 117);
             this.textBoxSide.Multiline = true;
             this.textBoxSide.Name = "textBoxSide";
-            this.textBoxSide.Size = new System.Drawing.Size(248, 282);
+            this.textBoxSide.Size = new System.Drawing.Size(368, 282);
             this.textBoxSide.TabIndex = 19;
             this.textBoxSide.Visible = false;
             // 
             // cBoxJob
             // 
+            this.cBoxJob.AutoCompleteCustomSource.AddRange(new string[] {
+            "Senior Software Engineer",
+            "Software Manager",
+            "QA Manager",
+            "QA Tester",
+            "Senior QA Tester",
+            "Producer",
+            "Designer",
+            "Senior Designer"});
+            this.cBoxJob.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cBoxJob.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cBoxJob.FormattingEnabled = true;
+            this.cBoxJob.Items.AddRange(new object[] {
+            "Senior Software Engineer",
+            "Software Manager",
+            "QA Manager",
+            "QA Tester",
+            "Senior QA Tester",
+            "Producer",
+            "Designer",
+            "Senior Designer"});
             this.cBoxJob.Location = new System.Drawing.Point(118, 117);
             this.cBoxJob.MaxDropDownItems = 4;
             this.cBoxJob.Name = "cBoxJob";
             this.cBoxJob.Size = new System.Drawing.Size(205, 21);
-            this.cBoxJob.TabIndex = 20;
+            this.cBoxJob.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(445, 428);
+            this.button1.Location = new System.Drawing.Point(565, 428);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(148, 35);
             this.button1.TabIndex = 21;
@@ -212,7 +232,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 485);
+            this.ClientSize = new System.Drawing.Size(725, 485);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cBoxJob);
             this.Controls.Add(this.textBoxSide);

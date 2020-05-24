@@ -15,6 +15,11 @@ namespace PayrollProgram1
         protected string payRate = "";
         protected string notes = "";
         protected static int employeeID = 1001;
+        protected double grossPay;
+        protected double netPay;
+        protected double taxes;
+        protected double yearlyGrossPay;
+        protected double yearlyNetPay;
 
         public Employee(string firstName, string lastName, string jobTitle, string phNumber, string payRate)
         {
@@ -44,7 +49,7 @@ namespace PayrollProgram1
 
         ~Employee()
         {
-
+            // destructor
         }
 
         public string FirstName
@@ -67,8 +72,8 @@ namespace PayrollProgram1
 
         public string Number
         {
-            get { return lastName; }
-            set { lastName = value; }
+            get { return phNumber; }
+            set { phNumber = value; }
         }
 
         public string PayRate
@@ -77,10 +82,11 @@ namespace PayrollProgram1
             set { payRate = value; }
         }
 
-        public int getConvertedPay()
+        public string getConvertedPay()
         {
             int convertedPayRate = Convert.ToInt32(payRate);
-            return convertedPayRate;
+            string newConvertedPayRate = convertedPayRate.ToString("c");
+            return newConvertedPayRate;
         }
 
         public string Notes
@@ -94,11 +100,38 @@ namespace PayrollProgram1
             get { return employeeID; }
         }
 
-        // need accessors and mutator (get/set)
-
-        public void saveEmployee()
+        public double formattedPayrate()
         {
-            // method that saves employee by writing to a file
+            double newPay = Double.Parse(payRate) * 40;
+            return newPay;
+        }
+
+        public double getGrossPay()
+        {
+            grossPay = Double.Parse(payRate) * 40;
+            return grossPay;
+        }
+
+        public double getYearlyGrossPay()
+        {
+            yearlyGrossPay = Double.Parse(payRate) * 40 * 52;
+            return yearlyGrossPay;
+        }
+
+        public double getNetPay()
+        {
+            double percentageValue = 0.20;
+            netPay = percentageValue * Convert.ToDouble(grossPay);
+            double newNetPay = grossPay - netPay;
+            return newNetPay;
+        }
+
+        public double getYearlyNetPay()
+        {
+            double percentageValue = 0.20;
+            netPay = percentageValue * Convert.ToDouble(grossPay);
+            double newYearlyNetPay = grossPay - netPay;
+            return newYearlyNetPay * 52;
         }
     }
 }
