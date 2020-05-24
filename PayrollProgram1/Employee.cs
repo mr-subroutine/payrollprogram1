@@ -17,7 +17,6 @@ namespace PayrollProgram1
         protected static int employeeID = 1001;
         protected double grossPay;
         protected double netPay;
-        protected double taxes;
         protected double yearlyGrossPay;
         protected double yearlyNetPay;
 
@@ -128,10 +127,11 @@ namespace PayrollProgram1
 
         public double getYearlyNetPay()
         {
+            yearlyNetPay = 0.00;
             double percentageValue = 0.20;
             netPay = percentageValue * Convert.ToDouble(grossPay);
-            double newYearlyNetPay = grossPay - netPay;
-            return newYearlyNetPay * 52;
+            yearlyNetPay = grossPay - netPay;
+            return yearlyNetPay * 52;
         }
     }
 }

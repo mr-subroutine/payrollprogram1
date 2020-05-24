@@ -186,6 +186,7 @@
             this.textBoxSide.Location = new System.Drawing.Point(345, 117);
             this.textBoxSide.Multiline = true;
             this.textBoxSide.Name = "textBoxSide";
+            this.textBoxSide.ReadOnly = true;
             this.textBoxSide.Size = new System.Drawing.Size(368, 282);
             this.textBoxSide.TabIndex = 19;
             this.textBoxSide.Visible = false;
@@ -205,6 +206,7 @@
             this.cBoxJob.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cBoxJob.FormattingEnabled = true;
             this.cBoxJob.Items.AddRange(new object[] {
+            "--",
             "Senior Software Engineer",
             "Software Manager",
             "QA Manager",
@@ -227,6 +229,7 @@
             this.button1.TabIndex = 21;
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 

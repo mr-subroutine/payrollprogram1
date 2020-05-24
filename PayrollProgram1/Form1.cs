@@ -14,6 +14,10 @@ namespace PayrollProgram1
 {
     public partial class Form1 : Form
     {
+        // WIP: 
+        // Write text to append
+        // Fill listbox
+
         public Form1()
         {
             InitializeComponent();
@@ -28,14 +32,21 @@ namespace PayrollProgram1
         
         private void btn_create_Click(object sender, EventArgs e)
         {
-            btn_create.Enabled = false;
+            // clear box in case of previous entries.
+            textBoxSide.Clear();
             checkDataFields();
             employee = createEmployee();
+            
             // display data and calculated numbers
             displayData(employee);
+            
             // write data to file
-
-            // save to combo box to display later (clicking user name will populate box again.
+            writeData(employee);
+            
+            // clear fields for future use of next entry
+            clearFields();
+            
+            // save to combo box to display later (clicking user name will populate box again).
 
         }
 
@@ -48,7 +59,7 @@ namespace PayrollProgram1
         private void checkDataFields()
         {
             if (tb_1.Text == "" || tb_1.Text == null || tb_2.Text == "" || tb_2.Text == null
-                || tb_4.Text == "" || tb_4.Text == null || tb_5.Text == "")
+                || tb_4.Text == "" || tb_4.Text == null || tb_5.Text == "" || comboBox1.Text == "--")
             {
                 MessageBox.Show("Please make sure all fields all filled out.");
             }
@@ -59,7 +70,10 @@ namespace PayrollProgram1
             textBoxSide.Text += "--Employee Data--";
             textBoxSide.Text = "Employee Identification Number: " + emp.getIdNumber;
             textBoxSide.Text += Environment.NewLine;
-            textBoxSide.Text += "First Name and Last Name: " + emp.FirstName + " " + emp.LastName;
+            textBoxSide.Text += "First Name: " + emp.FirstName;
+            textBoxSide.Text += Environment.NewLine;
+            textBoxSide.Text += "Last Name: " + emp.LastName;
+            textBoxSide.Text += Environment.NewLine;
             textBoxSide.Text += Environment.NewLine;
             textBoxSide.Text += "Job Title: " + emp.JobTitle;
             textBoxSide.Text += Environment.NewLine;
@@ -79,9 +93,41 @@ namespace PayrollProgram1
             textBoxSide.Text += "Yearly Net Pay: " + emp.getYearlyNetPay().ToString("c");
         }
 
+        private void clearFields()
+        {
+            // clear fields after create button is clicked.
+            tb_1.Text = "";
+            tb_2.Text = "";
+            tb_4.Text = "";
+            tb_5.Text = "";
+            tb_6.Text = "";
+            cBoxJob.SelectedItem = "--";
+        }
+
         private void writeData(Employee emp)
         {
-            
+            string[] arrays = new string[10];
+            string StartUpPath = Application.StartupPath;
+            string fileLocation = StartUpPath + @"\employeedata.txt";
+            string fileCheck = fileLocation;
+
+            arrays = storeForWrite(emp);
+            File.WriteAllLines(@fileLocation, arrays);
+        }
+
+        private string[] storeForWrite(Employee emp)
+        {
+            // store to array for write
+            string[] employeeArray = new string[] {emp.getIdNumber.ToString(), emp.FirstName, emp.LastName, emp.JobTitle,
+                emp.Number, emp.getGrossPay().ToString(), emp.getNetPay().ToString(), emp.getYearlyGrossPay().ToString(),
+                emp.getYearlyNetPay().ToString() };
+
+            return employeeArray;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
